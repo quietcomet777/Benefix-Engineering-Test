@@ -6,18 +6,18 @@ from openpyxl import load_workbook
 
 
 class mainScraper(object):
-	"""docstring for ClassName"""
+	
 	def __init__(self):
 		super(mainScraper, self).__init__()
 		self.Rates = []
 		self.startDates = []
 		self.endDates = []
 		self.Areas = []
-		self.planNames = []
+		self.planNames = []  # here the lists are initialized that will store the extracted data
 		self.States = []
 
 	def dataExtraction(self,path):
-		pdfData = pdfHandler(path)
+		pdfData = pdfHandler(path)     # this creates a list containing ALL the data in a single pdf
 
 		total = len(pdfData)
 
@@ -45,7 +45,7 @@ class mainScraper(object):
      
 
 	def writeToExcel(self,path):
-		excelFile = load_workbook(path)
+		excelFile = load_workbook(path)   #here the excel file is loaded and preped for editing 
 		mainSheet = excelFile.active
 		totalItems = len(self.Areas)
 		rateCount = 0

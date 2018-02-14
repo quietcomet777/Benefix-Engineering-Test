@@ -22,7 +22,7 @@ def pdfHandler(path):
     for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
         interpreter.process_page(page)
 
-    outputMain = retstr.getvalue()
+    outputMain = retstr.getvalue()    # this puts the pdf data into a single string that will later be returned as a list
 
     fp.close()
     device.close()
